@@ -2,13 +2,18 @@
  <div class="container pt-1">
   <div class="card">
     <h1>Динамический компанент</h1>
-    <appButton :color="active === 'one'?'primary':''" @action="active='one'">One</appButton>
-    <appButton :color="active === 'two'?'primary':''" @action="active='two'">Two</appButton>
+    <appButton :color="OneColor" @action="active='one'">One</appButton>
+    <appButton :color="TwoColor" @action="active='two'">Two</appButton>
   </div>
-  <div class="card"> 
-    <appTextOne v-if="active === 'one'"></appTextOne>
-    <appTextTwo v-else-if="active==='two'"></appTextTwo>
-  </div>
+
+  <keep-alive>
+    <component :is="componentName"></component>
+  </keep-alive>
+
+    <!-- <appTextOne v-if="active === 'one'"></appTextOne>
+    <appTextTwo v-else-if="active==='two'"></appTextTwo> -->
+    
+
  
   <!-- <div>
     <app-list>
@@ -57,7 +62,17 @@ export default {
       active:'one',
     }
   },
-
+  computed:{
+    componentName(){
+    return 'app-text-'+this.active
+    },
+    OneColor(){
+      return this.active === 'one' ? 'primary' : ''
+    },
+    TwoColor(){
+      return this.active === 'two' ? 'primary' : ''
+    },
+  },
 }
 </script>
 
