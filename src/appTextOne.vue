@@ -1,7 +1,14 @@
 <template>
-    
+    <slot>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quod.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quod.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quod.</p>
+    </slot>
 </template>
 
 <script>
-    name:"appTextOne"
+export default{
+    name:'appTextOne'
+}
+    
 </script>

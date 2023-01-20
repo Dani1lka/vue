@@ -2,9 +2,14 @@
  <div class="container pt-1">
   <div class="card">
     <h1>Динамический компанент</h1>
-    <appButton color="">One</appButton>
-    <appButton color="primary" @acrive="active='two'">Two</appButton>
+    <appButton :color="active === 'one'?'primary':''" @action="active='one'">One</appButton>
+    <appButton :color="active === 'two'?'primary':''" @action="active='two'">Two</appButton>
   </div>
+  <div class="card"> 
+    <appTextOne v-if="active === 'one'"></appTextOne>
+    <appTextTwo v-else-if="active==='two'"></appTextTwo>
+  </div>
+ 
   <!-- <div>
     <app-list>
       <template #default="{idx,iter}">
